@@ -62,37 +62,40 @@ namespace Database_Exam_Application.CoVidRental {
 
 
 
-        public void Send(string sqlQueryString, int colNum = 0) {
+        public string Send(string sqlQueryString, int colNum = 0) {
             try {
                 _conn = new CoVid_DbConnection(this.credentials.address, this.credentials.port, this.credentials.username, this.credentials.password, this.credentials.database);
                 MySqlConnector.MySqlCommand cmd = new MySqlConnector.MySqlCommand(sqlQueryString, _conn.GetConnection());
-
+                string output = "";
                 if(sqlQueryString.Contains("SELECT")) {
                     
                     MySqlConnector.MySqlDataReader readValue = cmd.ExecuteReader();
 
                     while(readValue.Read()) {
-                        string output = "Result: |";
+                        output = "Result: |";
                         int j = 0;
                         for(int i = 0; i < colNum -1; i++) {
                             output += (readValue[i] + "|, |");
                             j = i;
                         }
                         output += readValue[j+1] + "|";
-                        Console.WriteLine(output);
+                        //Console.WriteLine(output);
                     }
                     readValue.Close();
                     Console.WriteLine("Done reading!");
                 } else {
                     cmd.ExecuteNonQuery();
-                    Console.WriteLine("Query is pushed!");
+                    output = "Query is pushed!";
+                    //Console.WriteLine("Query is pushed!");
                 }
                 _conn.ConnectionManualStop();
+                return output;
 
             } catch(Exception ex) {
                 _conn.ConnectionManualStop();
-                Console.WriteLine("Failed to read!");
-                Console.WriteLine(ex);
+                return "Failed to read!";
+                //Console.WriteLine("Failed to read!");
+                //Console.WriteLine(ex);
             }
         }
     }

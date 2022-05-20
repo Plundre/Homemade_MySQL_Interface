@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Database_Exam_Application.UI.MenuPages.Business {
-    internal class BusinessMenu : Page{
+namespace Database_Exam_Application.UI.MenuPages.Branch.QuerieCategories {
+    internal class MiscQueries : Page{
 
-        CoVidRental.CoVidRental.Business dbBusinessView = new CoVidRental.CoVidRental.Business();
-
-        public BusinessMenu() {
-
+        public MiscQueries(){ 
+        
         }
-
 
         internal override void Run() {
             throw new NotImplementedException();
