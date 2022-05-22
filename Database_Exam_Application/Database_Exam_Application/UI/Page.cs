@@ -28,7 +28,7 @@ namespace Database_Exam_Application.UI {
         protected int result_Height;
 
 
-        protected float menuToResultRel = (float)0.3;
+        protected float menuToResultRel = (float)0.4;
 
 
         //abstract public string ContentToDraw { set;}
