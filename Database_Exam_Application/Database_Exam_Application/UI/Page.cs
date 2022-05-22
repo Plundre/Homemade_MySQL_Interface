@@ -88,7 +88,9 @@ namespace Database_Exam_Application.UI {
 
         internal string MenuUserInput() {
             Console.SetCursorPosition(0,menu_Height-2);
-            return Console.ReadLine();
+            string input = " ";
+            input = Console.ReadLine();
+            return input;
         }
 
         internal void Draw() {
@@ -112,6 +114,26 @@ namespace Database_Exam_Application.UI {
 
         internal void FullClear() { 
             Console.Clear();
+        }
+
+        internal void IntegerInputSanitation(out int output) {
+            while(true) {
+                Draw();
+                if(int.TryParse(MenuUserInput(), out output)) {
+                    break;
+                }
+                ResultRender("ERROR: Please enter an integer!");
+            }
+        }
+
+        internal void DoubleInputSanitation(out double output) {
+            while(true) {
+                Draw();
+                if(double.TryParse(MenuUserInput(), out output)) {
+                    break;
+                }
+                ResultRender("ERROR: Please enter a valid double precision floating point value (decimal or integer)!");
+            }
         }
 
         abstract internal void Run();

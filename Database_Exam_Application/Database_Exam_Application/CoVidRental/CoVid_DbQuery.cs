@@ -63,7 +63,9 @@ namespace Database_Exam_Application.CoVidRental {
 
 
         public string Send(string sqlQueryString, int colNum = 0) {
-            try {
+
+            return sqlQueryString + "\nWARNING! |CoVid_DbQuery.Send()| is commented out, u dumb dumb!!";
+            /*try {
                 _conn = new CoVid_DbConnection(this.credentials.address, this.credentials.port, this.credentials.username, this.credentials.password, this.credentials.database);
                 MySqlConnector.MySqlCommand cmd = new MySqlConnector.MySqlCommand(sqlQueryString, _conn.GetConnection());
                 string output = "";
@@ -96,7 +98,7 @@ namespace Database_Exam_Application.CoVidRental {
                 return "Failed to read!";
                 //Console.WriteLine("Failed to read!");
                 //Console.WriteLine(ex);
-            }
+            }*/
         }
     }
 }

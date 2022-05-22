@@ -20,8 +20,10 @@ namespace Database_Exam_Application.UI.MenuPages {
             this.credentials = credentials;
             this.coVidRental = coVidRental;
             branchMenu = new Branch.BranchMenu(this.coVidRental);
-            businessMenu = new Business.BusinessMenu();
+            businessMenu = new Business.BusinessMenu(this.coVidRental);
             MenuRender("\n"
+                     + "    Main Menu:\n"
+                     + "\n"
                      + "    What View would you like?\n"
                      + "\n"
                      + "    1: Branch View\n"
